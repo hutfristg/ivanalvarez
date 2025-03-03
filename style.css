@@ -1,0 +1,661 @@
+html {
+  scroll-behavior: smooth; /* Smooth scroll when navigating to the section */
+}
+
+/* Optional: Add animation to the section when it comes into view */
+@keyframes fadeInSection {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.hero-header{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    background:  rgb(243, 232, 224);
+    position: relative;
+}
+
+.wrapper{
+    width: 1280px;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0 20px;
+
+}
+
+header{
+    padding: 30px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo i{
+    height: 45px;
+    width: 45px;
+    background-color: rgb(180, 86, 5);
+    border-radius: 25%;
+    color:rgb(247, 242, 238);
+    font-family: Sankofa Display;
+    font-weight: 700;
+    font-size: 35px;
+    padding-block: 1px;
+    padding-left: 4.5px;
+    padding-bottom: 15px;
+    margin-right: 10px;
+
+    cursor: pointer;
+}
+
+.logo .logo-text{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: #453B32ff;
+}
+
+nav .togglebtn{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 45px;
+    right: 3%;
+    z-index: 5;
+    cursor: pointer;
+    display: none;
+}
+
+nav .togglebtn span{
+    display: block;
+    background-color: #453B32ff;
+    margin: 5px 0px;
+    width: 100%;
+    height: 3px;
+    transition: 0.3s;
+    transition-property: transform, opacity;
+}
+
+/* Links */
+nav .navlinks{
+    list-style-type: none;
+
+}
+nav .navlinks li{
+    display: inline-block;
+}
+nav .navlinks li a{
+    color: #453B32ff;
+    padding:10px;
+    margin-top: 2.5rem;
+    margin-right: 2.5rem;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* Hero Paragraph and Button Links */
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 4rem;
+}
+
+.container .hero-pic{
+    max-width: 500px;
+    max-height: auto;
+    display: flex; 
+    padding-right: 1rem;
+}
+
+.hero-pic img{
+  max-width: 100%;
+  max-height: auto;
+  border-radius: 30px;  /* Adjust this value for the level of rounding */
+  transition: 2s;
+}
+
+.hero-pic img:hover{
+  transform: scale(1.1);
+}
+
+.hero-text{
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-text h1{
+  color: rgb(180, 86, 5);
+  font-size: 50px;
+  padding-bottom: 0.5rem;
+}
+.hero-text h2{
+    color: #453B32ff;
+    font-size: 40px;
+}
+.hero-text h2 span{
+    color: #4C638Cff;
+    font-size: 50px;
+    cursor:pointer;
+    display: inline-block; /* Ensure the span can be transformed */
+    transition:  transform 0.3s ease, color 0.3s ease; /* Add transition for color and transform */
+}
+.hero-text h2 span.falling{
+    color: #671414; /* You can change this to a different color if desired */
+    transform: translateY(10px) scale(1.1); /* Move down and slightly scale up */
+    animation: bounce 0.3s ease forwards;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px); /* Move down */
+    }
+    100% {
+        transform: translateY(0); /* Return to original position */
+    }
+}
+
+.hero-text p{
+    color: #453B32ff;
+    padding-top: 1rem;
+    font-size: 25px;
+    text-align: left;
+}
+
+/* Button Part CV and Contact */
+.btn-group{
+    margin:45px 0;
+}
+.btn-group .btn{
+    border-color: #E5CBB6ff;
+    color: rgb(247, 242, 238);
+    background-color: rgb(180, 86, 5);
+    padding: 12px 25px;
+    margin: 5px 0px;
+    margin-right: 7px;
+    border-radius: 25px;
+}
+.btn-group .btn:hover{
+    border-color: #E5CBB6ff;
+    color: rgb(247, 242, 238);
+    background-color: #453B32ff;
+    padding: 12px 25px;
+    margin: 5px 0px;
+    margin-right: 7px;
+    border-radius: 25px;
+    transition: 0.5s;
+}
+
+.hero-text .social i{
+    color:  #453B32ff;
+    font-size: 30px;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+
+.hero-text .social i:hover{
+    color: rgb(180, 86, 5);
+    transform: rotate(360deg);
+}
+
+/* Responsive Design & Displaying Navbar for Small Screen */
+@media(max-width:930px){
+    nav .togglebtn{
+        display: initial;
+    }
+    /* for toggle button */
+    .click {
+        top: 45px;
+    }
+    .click span{
+        position: absolute;
+        margin-top: 12px;
+    }
+    .click span:first-child{
+        transform: rotate(-40deg);
+    }
+    .click span:nth-child(2){
+        opacity: 0;
+        margin: 0;
+    }
+    .click span:last-child{
+        transform: rotate(45deg);
+        top: 0;
+    }
+    nav .navlinks{
+        position: absolute;
+        top: 110px;
+        right: -100%;
+        bottom: 0;
+        width: 60%;
+        height: 100vh;
+        background-color: rgb(243, 232, 224);
+        z-index: 3;
+        box-shadow: 5px 13px 30px rgb(243, 232, 224);
+        transition: 0.5s;
+
+    }
+    nav .navlinks li{
+        display: block;
+    }
+    nav .navlinks li a{
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    nav .navlinks.open{
+        right: 0;
+    }
+}
+@media(max-width:768px){
+    .container{
+        flex-direction: column;
+        padding-top: 2rem;
+    }
+    .hero-text{
+        padding: 40px 0px;
+    }
+}
+/* Section Pages */
+.section-container {
+  gap: 4rem;
+  height: 90%;
+}
+
+.section__pic-container{
+  display: flex;
+  height: 500px;
+  margin: auto 0;
+}
+
+.section__text{
+  align-self: center;
+  text-align: center;
+}
+
+.section__text p{
+    font-weight: 700;
+}
+.section__text__p1{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.section__text__p2{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.title{
+    font-size: 3rem;
+    text-align: center;
+}
+
+.icon{
+    cursor: pointer;
+    height: 2rem;
+}
+
+/* ABOUT */
+
+#about{
+  position: relative;
+  width: auto;
+  height: 100%;
+  min-height: 100vh;
+
+}
+
+.about-containers{
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  margin-top: 0rem;
+}
+
+.about-details-container{
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding-top: 0.5rem; /* Add padding to the bottom to prevent overlap */
+    padding-bottom: 4rem;
+}
+
+.about-containers, .about-details-container{
+    display:  flex;
+    position: relative; /* This allows absolute positioning of the arrow */
+}
+.about-pic{
+  justify-content: center;
+    position: relative;
+    border-radius: 2rem;
+}
+.arrow{
+    position: absolute; /* Position the arrow absolutely */
+    width: 50px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    right: 1rem; /* Adjust this value to move it left/right */
+    bottom: 1rem; /* Adjust this value to move it up/down */
+    cursor: pointer; /* Change cursor to pointer for clickable element */
+}
+
+.arrow:hover{
+  transition: 2s;
+  transform: scale(1.2);
+}
+
+.text-container{
+
+  position: relative;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.details-container {
+  padding: 2rem;
+  margin-bottom: 0.5rem;
+  flex: 1;
+  background: white;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  text-align: center;
+}
+
+.section-container {
+  gap: 2rem;
+  height: 20%;
+  margin-top: 5%;
+}
+
+.section__pic-container {
+  justify-content: center;
+  position: relative;
+  border-radius: 2rem;
+  height: 450px;
+  width: 450px;
+  margin: auto 0;
+  margin-bottom: 13rem;
+}
+
+/* SECTIONS */
+
+section {
+  padding-top: 10vh;
+  height: 93vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.section-container {
+  display: flex;
+}
+
+/* EXPERIENCES */
+
+#experience{
+    position: relative;
+    width: auto;
+    height: 100%;
+    min-height: 100vh;
+    padding-bottom: 0.5rem;
+}
+
+.experience-sec{
+    position: relative; /* Ensure the section has a positioning context */
+    padding: 1.5rem;
+}
+
+.experience-sub-title{
+    color: #4C638Cff;
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative; /* This allows absolute positioning of the arrow */
+  padding-top: 4rem; /* Add padding to the bottom to prevent overlap */
+  padding-bottom: 4rem;
+}
+
+.article-container{
+  display: flex;
+  text-align: initial;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  width: 9rem;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+article .icon {
+  cursor: default;
+} 
+
+/* PROJECTS */
+
+#projects{
+    position: relative;
+    width: auto;
+    height: 100%;
+    min-height: 100vh;
+    padding-top: 4rem;
+    padding-bottom: 0.5rem;
+}
+
+color-container {
+  border-color: rgb(163, 163, 163);
+  background: rgb(250, 250, 250);
+}
+
+.project-img {
+  border-radius: 2rem;
+  width: 90%;
+  height: 90%;
+}
+
+.project-title {
+  margin: 1rem;
+  color: black;
+}
+
+.project-btn {
+  color: black;
+  border-color: rgb(163, 163, 163);
+}
+
+/* BUTTON  */
+
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  font-weight: 600;
+  transition: all 300ms ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+}
+
+.btn-color-1,
+.btn-color-2 {
+  border: rgb(53, 53, 53) 0.1rem solid;
+}
+
+.btn-color-1:hover,
+.btn-color-2:hover {
+  cursor: pointer;
+}
+
+.btn-color-1,
+.btn-color-2:hover {
+  background: rgb(53, 53, 53);
+  color: white;
+}
+
+.btn-color-1:hover {
+  background: rgb(0, 0, 0);
+}
+
+.btn-color-2 {
+  background: none;
+}
+
+.btn-color-2:hover {
+  border: rgb(255, 255, 255) 0.1rem solid;
+}
+
+.btn-container {
+  gap: 1rem;
+}
+
+
+
+
+/* CONTACT */
+
+.contact-sec{
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    background:  rgb(247, 246, 245);
+    position: relative;
+    padding-bottom: 2rem;
+
+}
+
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  background: (250, 250, 250);
+  margin: 2rem auto;
+  padding: 0.5rem;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.contact-info-container p {
+  font-size: larger;
+}
+
+.contact-icon {
+  cursor: default;
+}
+
+.email-icon {
+  height: 2.5rem;
+}
+
+/* FOOTER SECTION */
+
+footer {
+  height: 26vh;
+  margin: 0 1rem;
+}
+
+footer p {
+  text-align: center;
+}
+
+/* TRANSITION */
+
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+/* DESKTOP NAV */
+
+.nav-links {
+  display: flex;
+  justify-content: space-around; /* Or you can try 'space-between' */
+  align-items: center;
+  height: 17vh;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+
+a {
+  color: black;
+  text-decoration: none;
+  text-decoration-color: white;
+}
+
+a:hover {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: rgb(181, 181, 181);
+}
+
+
+/* FOOTER */
+
+.footer-sec{
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    background:  rgb(243, 232, 224);
+    position: relative;
+
+}
